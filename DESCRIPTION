@@ -1,22 +1,15 @@
-package: prilims-api
+Package: priogenapi
+Type: Package
 Title: A package for accessing the PriLIMS API
 Version: 0.0.0.9000
-Authors:
-  person(
-    given = "Gage",
-    family = "Rowden",
-    email = "gager@priogen.bio",
-    role = c("aut", "cre"),
-    comment = c(ORCID = "0000-0002-7517-0480")
-  )
-Description:
-  This package provides useful function for accessing Priogen's proprietary database, PriLIMS.
+Author: Gage Rowden
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: This package provides useful function for accessing Priogen's proprietary database, PriLIMS.
 Imports:
-  dplyr,
-  httr2,
-  jsonlite
-Depends: R (>= 4.1.0)
+    dplyr,
+    httr2,
+    jsonlite
+License: What license is it under?
 Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
-
+LazyData: true
+RoxygenNote: 7.3.3

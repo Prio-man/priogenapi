@@ -1,4 +1,4 @@
 ^renv$
 ^renv\.lock$
-^priogenapi\.Rproj$
+^.*\.Rproj$
 ^\.Rproj\.user$
