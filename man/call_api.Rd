@@ -4,12 +4,18 @@
 \alias{call_api}
 \title{Make a call to the PriLIMS API}
 \usage{
-call_api(key, endpoint)
+call_api(key, endpoint, order = NA, sample = NA, reaction = NA)
 }
 \arguments{
 \item{key}{An API key used for accessing PriLIMS API}
 
-\item{endpoint}{Endpoint URL; e.g. "raw" if accessing Raw data table.}
+\item{endpoint}{Endpoint URL; e.g. "results" if accessing Results data table.}
+
+\item{order}{Character; the order number}
+
+\item{sample}{Character; the sample name}
+
+\item{reaction}{Character; the reaction name}
 }
 \description{
 Requires an API key provided by Priogen Corp.
