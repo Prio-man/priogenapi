@@ -25,7 +25,7 @@ call_api <- function(key, endpoint, order=NA, sample=NA, reaction=NA) {
     if (tolower(answer) != "y") stop("API call stopped by user")
   }
 
-  url <- paste0("http://127.0.0.1:8000/labdb/api/", endpoint)
+  url <- paste0("https://priogen.xyz/labdb/api/", endpoint)
   all_results <- list()
 
   repeat {
