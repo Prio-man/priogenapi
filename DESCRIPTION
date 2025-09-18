@@ -1,7 +1,7 @@
 Package: priogenapi
 Type: Package
 Title: A package for accessing the PriLIMS API
-Version: 0.0.1
+Version: 0.0.1.9000
 Author: Gage Rowden
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: This package provides useful function for accessing Priogen's proprietary database, PriLIMS.
