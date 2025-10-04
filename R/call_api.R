@@ -14,10 +14,10 @@
 #'
 #' @export
 
-call_api <- function(key, endpoint, order=NA, sample=NA, reaction=NA) {
+call_api <- function(key, endpoint, order=NULL, sample=NULL, reaction=NULL) {
 
   # Disincentivize user from querying the entire table.
-  if (is.na(order) & is.na(sample) & is.na(reaction)) {
+  if (is.null(order) & is.null(sample) & is.null(reaction)) {
     cat("\n\n")
     answer <- "You are about to query the entire %s table. Do you wish to proceed? [Y/n]: " %>%
       sprintf(endpoint) %>%
@@ -33,9 +33,9 @@ call_api <- function(key, endpoint, order=NA, sample=NA, reaction=NA) {
       req_headers(Authorization = paste("Token", key))
 
     resp <- req %>%
-      {if (!is.na(order)) req_url_query(.data, order=order) else .data} %>%
-      {if (!is.na(sample)) req_url_query(.data, sample=sample) else .data} %>%
-      {if (!is.na(reaction)) req_url_query(.data, reaction=reaction) else .data} %>%
+      {if (!is.null(order)) req_url_query(., order=order, .multi="pipe") else .} %>%
+      {if (!is.null(sample)) req_url_query(., sample=sample, .multi="pipe") else .} %>%
+      {if (!is.null(reaction)) req_url_query(., reaction=reaction, .multi="pipe") else .} %>%
       req_perform()
 
     data <- resp_body_json(resp, simplifyVector = TRUE)
