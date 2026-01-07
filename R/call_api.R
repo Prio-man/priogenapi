@@ -7,6 +7,7 @@
 #' @param order Character; the order number
 #' @param sample Character; the sample name
 #' @param reaction Character; the reaction name
+#' @param local_test Logical; Are you testing on a local PriLIMS instance?
 #'
 #' @import httr2
 #' @import jsonlite
@@ -14,7 +15,7 @@
 #'
 #' @export
 
-call_api <- function(key, endpoint, order=NULL, sample=NULL, reaction=NULL) {
+call_api <- function(key, endpoint, order=NULL, sample=NULL, reaction=NULL, local_test=FALSE) {
 
   # Disincentivize user from querying the entire table.
   if (is.null(order) & is.null(sample) & is.null(reaction)) {
@@ -25,7 +26,12 @@ call_api <- function(key, endpoint, order=NULL, sample=NULL, reaction=NULL) {
     if (tolower(answer) != "y") stop("API call stopped by user")
   }
 
-  url <- paste0("https://priogen.xyz/labdb/api/", endpoint)
+  if (local_test) {
+    url <- paste0("http://127.0.0.1:8000/labdb/api/", endpoint)
+  } else{
+    url <- paste0("https://priogen.xyz/labdb/api/", endpoint)
+  }
+
   all_results <- list()
 
   repeat {

@@ -4,7 +4,14 @@
 \alias{call_api}
 \title{Make a call to the PriLIMS API}
 \usage{
-call_api(key, endpoint, order = NA, sample = NA, reaction = NA)
+call_api(
+  key,
+  endpoint,
+  order = NULL,
+  sample = NULL,
+  reaction = NULL,
+  local_test = FALSE
+)
 }
 \arguments{
 \item{key}{An API key used for accessing PriLIMS API}
@@ -16,6 +23,8 @@ call_api(key, endpoint, order = NA, sample = NA, reaction = NA)
 \item{sample}{Character; the sample name}
 
 \item{reaction}{Character; the reaction name}
+
+\item{local_test}{Logical; Are you testing on a local PriLIMS instance?}
 }
 \description{
 Requires an API key provided by Priogen Corp.
